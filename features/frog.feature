@@ -22,6 +22,17 @@ Feature: Frog features
 		|5		|1,3,1,4,2,3,5,4	|6	|
 		|2		|2,1				|2	|
 		
+	Scenario Outline: Checking the worst case scenario is still within O(N) of time and O(X) of space
+		Given a frog jumping across the river
+		And the number of leaves is <leaves>
+		And the leaves do not fall in a favorable pattern
+		Then the method should iterate an equal number of times as <leaves>
+		And the length of the frog jump array should be equal or less than <leaves>
 		
+		Examples:
+		|leaves	|
+		|2		|
+		|5		|
+		|100000	|
 		
 		
