@@ -30,7 +30,8 @@ group :development do
   gem 'pry'
 end
 
-group :test, :development do
+group :test do
   # Using Cucumber for TDD  
-  gem 'cucumber'
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
 end

@@ -1,9 +1,7 @@
 require 'pry'
 
 Given(/^a frog$/) do
-  binding.pry
   @frog = Frog.new
-  binding.pry
 end
 
 Given(/^the frog's random number generator generates a value$/) do
