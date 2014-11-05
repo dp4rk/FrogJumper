@@ -20,19 +20,16 @@ Then(/^the frog's random value should be less than or equal to (\d+)$/) do |max|
   @frog.rand.should <= max
 end
 
-Given(/^the number of leaves is (\d+)$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Given(/^the number of leaves is (\d+)$/) do |leaves|
+  @frog.leaves = leaves 
 end
 
-Given(/^the leaves fall in pattern is (\d+),(\d+),(\d+),(\d+),(\d+),(\d+),(\d+),(\d+)$/) do |arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8|
-  pending # express the regexp above with the code you wish you had
+Given(/^the leaves fall in pattern (\d+)$/) do |pattern|
+  binding.pry
+  @pattern = pattern.to_s.split('').map{|e| e.to_i}
 end
 
 Then(/^the earliest the frog can get across the river is in (\d+) minutes$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
-end
-
-Given(/^the leaves fall in pattern is (\d+),(\d+)$/) do |arg1, arg2|
   pending # express the regexp above with the code you wish you had
 end
 

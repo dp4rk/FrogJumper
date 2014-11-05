@@ -16,13 +16,13 @@ Feature: Frog features
 	Scenario Outline: Method returning expected values
 		Given a frog
 		And the number of leaves is <leaves>
-		And the leaves fall in pattern is <pattern>
+		And the leaves fall in pattern <pattern>
 		Then the earliest the frog can get across the river is in <min> minutes
 		
 		Examples:
-		|leaves	|pattern			|min|
-		|5		|1,3,1,4,2,3,5,4	|6	|
-		|2		|2,1				|2	|
+		|leaves	|pattern	|min|
+		|5		|13142354	|6	|
+		|2		|21			|2	|
 		
 	Scenario Outline: Checking the worst case scenario is still within O(N) of time and O(X) of space
 		Given a frog jumping across the river
