@@ -25,26 +25,26 @@ Given(/^the number of leaves is (\d+)$/) do |leaves|
 end
 
 Given(/^the leaves fall in pattern (\d+)$/) do |pattern|
-  binding.pry
-  @pattern = pattern.to_s.split('').map{|e| e.to_i}
+  binding.pry #binding here to doublecheck if <pattern> is a string or an int
+  @frog.pattern = pattern.to_s.split('').map{|e| e.to_i} #Takes an integer and splits it using string functions into an array of single digits
 end
 
-Then(/^the earliest the frog can get across the river is in (\d+) minutes$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^the earliest the frog can get across the river is in (\d+) minutes$/) do |mins|
+  @frog.time.should == mins
 end
 
 Given(/^a frog jumping across the river$/) do
-  pending # express the regexp above with the code you wish you had
+  @frog = Frog.create!
 end
 
 Given(/^the leaves do not fall in a favorable pattern$/) do
-  pending # express the regexp above with the code you wish you had
+  @frog.generate_bad_pattern
 end
 
-Then(/^the method should iterate an equal number of times as (\d+)$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^the method should iterate an equal number of times as (\d+)$/) do |mins|
+  @frog.time.should == mins
 end
 
-Then(/^the length of the frog jump array should be equal or less than (\d+)$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^the length of the frog jump array should be equal or less than (\d+)$/) do |jumps|
+  @frog.steps.length.should <= jumps
 end
