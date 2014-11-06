@@ -1,23 +1,23 @@
 require 'pry'
 
 Given(/^a frog$/) do
-  @frog = Frog.new
-end
-
-Given(/^the frog's random number generator generates a value$/) do
-  @frog.rand.empty?.should == false
+  @frog = Frog.create!(:num_leaves => rand(1..100000), :river_width => rand(1..100000))
 end
 
 Then(/^the frog's random value should be an integer$/) do
-  @frog.rand.is_a?(Integer).should == true
+  leaves = @frog.num_leaves.is_a? Integer
+  river = @frog.river_width.is_a? Integer
+  (leaves && river).should == true #If either are false, this test fails.
 end
 
 Then(/^the frog's random value should be greater than or equal to (\d+)$/) do |min|
-  @frog.rand.should >= min
+  @frog.num_leaves.should >= min
+  @frog.river_width.should >= min
 end
 
 Then(/^the frog's random value should be less than or equal to (\d+)$/) do |max|
-  @frog.rand.should <= max
+  @frog.num_leaves.should <= max
+  @frog.river_width.should <= max
 end
 
 Given(/^the number of leaves is (\d+)$/) do |leaves|

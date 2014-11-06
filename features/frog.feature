@@ -8,7 +8,6 @@ Feature: Frog features
 
 	Scenario: Random number generation test
 		Given a frog
-		And the frog's random number generator generates a value
 		Then the frog's random value should be an integer
 		And the frog's random value should be greater than or equal to 1
 		And the frog's random value should be less than or equal to 100000
