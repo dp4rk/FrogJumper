@@ -24,6 +24,9 @@ Given(/^the number of leaves is (\d+)$/) do |leaves|
   @frog.leaves = leaves 
 end
 
+#This is a poorly made step - any pattern longer than 9 leaves will not work with this formula.  If separated by commas, this regular expression fails,
+#And if a regular expression is written to incorporate commas, it will only take the last number (EOL issue) or the step will have to
+#be customized for the amount of leaves in the pattern, and redundant steps will occur.
 Given(/^the leaves fall in pattern (\d+)$/) do |pattern|
   binding.pry #binding here to doublecheck if <pattern> is a string or an int
   @frog.pattern = pattern.to_s.split('').map{|e| e.to_i} #Takes an integer and splits it using string functions into an array of single digits
