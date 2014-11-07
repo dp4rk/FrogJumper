@@ -33,7 +33,7 @@ class Frog < ActiveRecord::Base
   def generate_crossing_pattern(number_of_leaves)
     pattern = Array.new
     
-    (1..leaves).each do |leaf|
+    (1..number_of_leaves.to_i).each do |leaf|
       pattern << 1 + rand(self.river_width)
     end #end loop
     

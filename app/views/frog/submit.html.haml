@@ -1,0 +1,30 @@
+.row
+  %h1 Welcome to FrogJumper!
+  %p
+    Enter the details of this frog's jump then click 
+    submit to see how fast this frog can cross
+
+.row
+  = form_tag new_frog_path, :action => "new" do
+    %table
+      %tr
+        %td Enter the river width - an integer between 1 and 100000.  This will be randomized if left blank.
+      %tr  
+        %td
+          = number_field_tag 'width', nil, :in => 1..100000, :placeholder => "River width X"
+      %tr
+        %td Enter the pattern in which the leaves will fall as a comma-delimited array.
+      %tr
+        %td
+          = text_field_tag 'pattern', nil, :placeholder => "1,2,1,4,2,3,5,4 as an example"
+      %tr
+        %td 
+          If you want to leave the pattern blank and let the system generate a random pattern,
+          enter how many leaves you want to fall into the river here as a number between 1 and 100000.
+          Note that if you have any values in the pattern field, this value will be ignored.
+      %tr
+        %td
+          = number_field_tag 'leaves', nil, :in => 1..100000, :placeholder => "Leaf quantity N"    
+      %tr
+        %td
+          =submit_tag 'Submit'
