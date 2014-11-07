@@ -1,5 +1,28 @@
-=if @time >= 0
-= params[:leaves].to_i
-= @pattern
-= params[:width]
-= @time
+.row
+  -if @time >= 0
+    %h1 The frog has crossed!
+    The time to cross the river was
+    %b  
+      =@time
+      minutes
+  
+  -else
+    %h1 The frog is stuck!
+
+.row
+  %h3 More info:
+  %table
+    %tr
+      %th The pattern that the leaves fell in was
+      %th The number of leaves was
+      %th The width of the river was
+      %th The function returned
+    %tr
+      %td
+        = @pattern
+      %td
+        = @pattern.length
+      %td
+        = @frog.river_width
+      %td 
+        = @time

@@ -13,11 +13,12 @@ find the time it takes for the frog to cross if it takes 1 minute for each leaf 
 
 To get started:
 Clone this repository to a local development environment.  Run bundler to install any
-missing required gems.  Open a rails console and create a new Frog, giving a river width.
+missing required gems.  
 
-Call the frog's method with an array of integers between 1..100000
-to run the method directly.
-	Frog.new(:river_width = rand(1..100000).time_to_cross_river(Array)
+You now have a few things you can do.  Run a development server and use the interface to see the outputs.
+If you submit nothing, outputs will be randomized.  Be warned that it could display up to 100,000 values when randomized.
 
-Outside of the console, run cucumber to see the test cases for a successful and unsuccessful crossing.
-	rake cucumber 
+Also note that submitted a pattern with any values will cause the 'leaves' field to be ignored.
+  
+Outside of the server and console, run cucumber to see the test cases for a successful and unsuccessful crossing.
+  rake cucumber 
