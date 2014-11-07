@@ -1,8 +1,5 @@
 class Frog < ActiveRecord::Base
   
-  #This value is only needed if the pattern of falling leaves needs to be generated
-  #validates_inclusion_of :num_leaves, :in => 1..100000 
-  
   #This is a required value since the frog needs to know how many places the leaves can fall to cross the river.  This is a very calculating frog.
   validates_inclusion_of :river_width, :in => 1..100000 #This is the number of locations that leaves need to fall.  >=1 leaf per location is the success criteria of the time function
 
@@ -14,8 +11,7 @@ class Frog < ActiveRecord::Base
       jumps_so_far = Array.new #This is how many jumps the frog has taken
   
       pattern.each_with_index do |leaf, i|
-  
-        unless jumps_so_far.include? leaf
+        unless ((jumps_so_far.include? leaf) || (leaf.to_i > self.river_width)) #If a leaf falls in a position outside of the river, it doesn't count
           jumps_so_far << leaf
   
           if jumps_so_far.length == river_width

@@ -1,5 +1,5 @@
 Given(/^a frog$/) do
-  @frog = Frog.new(:river_width => 1 + rand(100000)
+  @frog = Frog.new(:river_width => 1 + rand(100000))
 end
 
 Then(/^the frog's random value should be an integer$/) do
