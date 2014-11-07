@@ -10,7 +10,7 @@ class FrogController < ApplicationController
       @frog.river_width = 1 + rand(100000)
     end
         
-    if params[:pattern]
+    if params[:pattern].blank? == false
       @pattern = params[:pattern].split(',').map{|e| e.to_i} #Splits the input pattern on commas and separates them into ints
     
     elsif params[:leaves]
