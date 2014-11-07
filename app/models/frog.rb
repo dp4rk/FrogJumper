@@ -29,4 +29,15 @@ class Frog < ActiveRecord::Base
     end #endif   
   end #enddef
   
+  #Generates the crossing pattern if it isn't given
+  def generate_crossing_pattern(number_of_leaves)
+    pattern = Array.new
+    
+    (1..leaves).each do |leaf|
+      pattern << 1 + rand(self.river_width)
+    end #end loop
+    
+    return pattern
+  end #end generate_crossing_pattern(int)
+  
 end #endmodel
