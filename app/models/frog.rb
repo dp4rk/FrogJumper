@@ -10,31 +10,32 @@ class Frog < ActiveRecord::Base
       #If the width is 1 and the pattern is also 1, then the frog crosses immediately.
       if pattern == river_width
         return 0
-      
       else
         return -1
-        
       end #endif
-    end #endif
     
-    if pattern.length < river_width
-      return -1 #It can't cross the river if there are fewer leaves than the width
-    end
+    elsif pattern.nil?
+      return -1
+    else
     
-    jumps_so_far = Array.new #This is how many jumps the frog has taken
-
-    pattern.each_with_index do |leaf, i|
-      unless ((jumps_so_far.include? leaf) || (leaf.to_i > self.river_width)) #If a leaf falls in a position outside of the river, it doesn't count
-        jumps_so_far << leaf
-
-        if jumps_so_far.length == river_width
-          return i #If the frog has crossed the river, return the index of the pattern array - aka time it took to cross
-        end #endif
-      end #endunless
+      if pattern.length < river_width
+        return -1 #It can't cross the river if there are fewer leaves than the width
+      end
       
-    end #endeach
-    return -1 #If the frog fails to cross, return -1
-
+      jumps_so_far = Array.new #This is how many jumps the frog has taken
+  
+      pattern.each_with_index do |leaf, i|
+        unless ((jumps_so_far.include? leaf) || (leaf.to_i > self.river_width)) #If a leaf falls in a position outside of the river, it doesn't count
+          jumps_so_far << leaf
+  
+          if jumps_so_far.length == river_width
+            return i #If the frog has crossed the river, return the index of the pattern array - aka time it took to cross
+          end #endif
+        end #endunless
+        
+      end #endeach
+      return -1 #If the frog fails to cross, return -1
+    end #endif
   end #enddef
   
   #Generates the crossing pattern if it isn't given
@@ -48,4 +49,33 @@ class Frog < ActiveRecord::Base
     return pattern
   end #end generate_crossing_pattern(int)
   
+  #Weeds out the bad patterns from the good. Ignores characters, only takes integers
+  def pattern_splitter(input)
+    pattern = Array.new
+    
+    if (input.include? ',') #if the string is comma separated
+      #Non digit characters .to_i = 0
+      pattern = input.split(',').map{|e| e.to_i} #Split on the comma and put it into an int array.
+      output = Array.new
+      
+      pattern.each do |p|
+        output << p if p > 0 #Skip the non-digit characters
+      end
+      
+      #If it was a comma separated array of word characters
+      if output.empty?
+        return nil
+      else
+        return output
+      end
+            
+    else #else it isn't comma separated
+      if input.to_i > 0
+        pattern = input.split('').map{|e| e.to_i} #Ignores the string characters
+    
+      else
+        return nil #Returns a blank if no integers are in the input
+      end #endif
+    end #endif
+  end #end pattern_splitter(string)
 end #endmodel

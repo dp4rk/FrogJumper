@@ -25,3 +25,4 @@ Feature: Frog features
 		|3		|12			|-1	|
 		|3		|126		|-1	|
 		|1		|1			|0	|
+		|1		|cat		|-1	|

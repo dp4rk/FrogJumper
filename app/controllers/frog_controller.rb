@@ -29,7 +29,7 @@ class FrogController < ApplicationController
         
         #If the pattern is not blank, use the pattern submitted
         else
-          @pattern = params[:pattern].split(',').map{|e| e.to_i} #Splits the input pattern on commas and separates them into ints
+          @pattern = @frog.pattern_splitter(params[:pattern]) #Splits the input pattern on commas and separates them into ints
         end
       end #endif
     end #endif
