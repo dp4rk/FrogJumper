@@ -19,7 +19,7 @@ class Frog < ActiveRecord::Base
           jumps_so_far << leaf
   
           if jumps_so_far.length == river_width
-            return i + 1 #If the frog has crossed the river, return the index of the pattern array - aka time it took to cross
+            return i #If the frog has crossed the river, return the index of the pattern array - aka time it took to cross
           end #endif
         end #endunless
         

@@ -1,17 +1,13 @@
-require 'pry'
-
 Given(/^a frog$/) do
-  @frog = Frog.create!(:num_leaves => rand(1..100000), :river_width => rand(1..100000))
+  @frog = Frog.new(:river_width => rand(1..100000)
 end
 
 Then(/^the frog's random value should be an integer$/) do
-  leaves = @frog.num_leaves.is_a? Integer
-  river = @frog.river_width.is_a? Integer
-  expect(leaves && river).to eq(true) #If either are false, this test fails.
+  width = @frog.river_width.is_a? Integer
+  expect(width).to eq(true) #If either are false, this test fails.
 end
 
 Then(/^the frog's random value should be between (\d+) and (\d+)$/) do |min, max|
-  expect(@frog.num_leaves).to be_between(min.to_i, max.to_i).exclusive
   expect(@frog.river_width).to be_between(min.to_i, max.to_i).exclusive
 end
 

@@ -19,7 +19,7 @@ Feature: Frog features
 		
 		Examples:
 		|width	|pattern	|min|
-		|5		|13142354	|7	|
-		|2		|21			|2	|
+		|5		|13142354	|6	|
+		|2		|21			|1	|
 		|3		|111111222	|-1	|
 		|3		|12			|-1	|

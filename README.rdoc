@@ -1,28 +1,23 @@
-== README
+== FrogJumper
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to FrogJumper.
 
-Things you may want to cover:
+The problem is as follows:
+A frog needs to cross a river.  The river is X width.
+There is a tree dropping N leaves onto the river.  Each leaf falls into a random yet
+discrete location on the river.  Once there is a leaf in each of the X locations of the river
+then the frog will be able to jump across.  
 
-* Ruby version
+Given the river width X, an array of leaves of length N falling into locations 1..X, 
+find the time it takes for the frog to cross if it takes 1 minute for each leaf to fall.
 
-* System dependencies
+To get started:
+Clone this repository to a local development environment.  Run bundler to install any
+missing required gems.  Open a rails console and create a new Frog, giving a river width.
 
-* Configuration
+Call the frog's method with an array of integers between 1..100000
+to run the method directly.
+	Frog.new(:river_width = rand(1..100000).time_to_cross_river(Array)
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Outside of the console, run cucumber to see the test cases for a successful and unsuccessful crossing.
+	rake cucumber 

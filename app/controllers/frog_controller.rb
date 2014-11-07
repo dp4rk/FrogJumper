@@ -1,17 +1,26 @@
 class FrogController < ApplicationController
   def new
     @frog = Frog.new
-  end
+    
+    if params[:pattern]
+      @pattern = params[:pattern]
+    
+    elsif params[:leaves]
+      @pattern = generate_crossing_pattern(params[:leaves].to_i)
+    end #endif
+      
+  end #end new
   
   #Generates the crossing pattern if it isn't given
-  def generate_crossing_pattern
-    @pattern = Array.new
-    @frog.num_leaves = leaves
-    1..leaves.each do |leaf|
-      @pattern << 1 + rand(@frog.river_width)
-    end
-    @pattern.save
-  end
+  def generate_crossing_pattern(leaves)
+    pattern = Array.new
+    
+    (1..leaves).each do |leaf|
+      pattern << 1 + rand(@frog.river_width)
+    end #end loop
+    
+    return pattern
+  end #end generate_crossing_pattern(int)
   
   
 
