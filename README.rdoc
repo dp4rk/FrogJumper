@@ -15,7 +15,8 @@ To get started:
 Clone this repository to a local development environment.  Run bundler to install any
 missing required gems.  
 
-You now have a few things you can do.  Run a development server and use the interface to see the outputs.
+Testing FrogJumper
+Run a development server and use the interface to see the outputs.
 If you submit nothing, outputs will be randomized.  Be warned that it could display up to 100,000 values when randomized.
 
 Also note that submitted a pattern with any values will cause the 'leaves' field to be ignored.
