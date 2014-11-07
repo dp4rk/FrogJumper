@@ -23,18 +23,3 @@ Feature: Frog features
 		|2		|21			|2	|
 		|3		|111111222	|-1	|
 		|3		|12			|-1	|
-		
-	Scenario Outline: Checking the worst case scenario is still within O(N) of time and O(X) of space
-		Given a frog
-		And the river width is <leaves>
-		And the leaves do not fall in a favorable pattern
-		Then the earliest the frog can get across the river is in <leaves> minutes
-		And the length of the frog jump array should be equal or less than <leaves>
-		
-		Examples:
-		|leaves	|
-		|2		|
-		|5		|
-		|100000	|
-		
-		

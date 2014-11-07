@@ -34,11 +34,3 @@ end
 Then(/^the earliest the frog can get across the river is in -(\d+) minutes$/) do |mins|
   expect(@frog.time_to_cross_river(@pattern)).to eq(mins.to_i * -1)
 end
-
-Given(/^the leaves do not fall in a favorable pattern$/) do
-  @frog.generate_bad_pattern
-end
-
-Then(/^the length of the frog jump array should be equal or less than (\d+)$/) do |jumps|
-  expect(@frog.steps.length).to be <= jumps
-end
